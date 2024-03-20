@@ -23,7 +23,7 @@ const BookObject = Joi.object({
   }),
 });
 export const checkBookValidate = (req, res, next) => {
-  const { error } = BookObject.validate(req.body, { abortEarly: false }); // abortEarly: false  chạy từ trên xg dưới rồi mới báo lỗi
+  const { error } = BookObject.validate(req.body, { abortEarly: false });
   if (error) {
     const err = error.details.map((e) => e.message);
     res.send({ status: false, message: err });
